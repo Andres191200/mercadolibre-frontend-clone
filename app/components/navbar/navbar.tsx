@@ -1,10 +1,10 @@
 import Image from "next/image";
-import { SearchIcon } from "./icons/search-icon";
-import { BellIcon } from "./icons/bell-icon";
-import { CartIcon } from "./icons/cart-icon";
-import { TagIcon } from "./icons/tag-icon";
-import { LocationIcon } from "./icons/location-icon";
-import { ChevronDownIcon } from "./icons/chevron-down-icon";
+import { SearchIcon } from "./utils/icons/search-icon";
+import { BellIcon } from "./utils/icons/bell-icon";
+import { CartIcon } from "./utils/icons/cart-icon";
+import { TagIcon } from "./utils/icons/tag-icon";
+import { LocationIcon } from "./utils/icons/location-icon";
+import { ChevronDownIcon } from "./utils/icons/chevron-down-icon";
 
 const NAV_LINKS = [
   { label: "Categorías", hasDropdown: true },
@@ -33,7 +33,7 @@ function DesktopNavbar() {
     <div className="hidden md:block">
       <div className="mx-auto max-w-[1200px] px-4">
         {/* Top row: logo, search, promo */}
-        <div className="flex h-16 items-center justify-between">
+        <div className="flex h-16 items-center justify-start">
           <LeftSection />
           <SearchBar />
           <PromoSection />
@@ -58,14 +58,7 @@ function MobileNavbar() {
   return (
     <div className="flex h-14 items-center justify-between px-3 md:hidden">
       {/* Logo icon only */}
-      <Image
-        src="/mercado-libre-handshake.png"
-        alt="Mercado Libre"
-        width={36}
-        height={36}
-        className="shrink-0 object-contain"
-      />
-
+      <Logo />
       {/* Search input */}
       <div className="relative mx-2 flex flex-1">
         <SearchIcon className="absolute left-2.5 top-1/2 size-4 -translate-y-1/2 text-ml-hint" />
@@ -90,16 +83,23 @@ function MobileNavbar() {
   );
 }
 
+function Logo() {
+  return (
+    <Image
+      src="/logo.png"
+      alt="Mercado Libre"
+      width={134}
+      height={34}
+      className="cursor-pointer object-contain"
+    />
+    
+  )
+}
+
 function LeftSection() {
   return (
     <div className="flex items-center gap-4">
-      <Image
-        src="/mercado-libre-logo.png"
-        alt="Mercado Libre"
-        width={134}
-        height={34}
-        className="cursor-pointer object-contain"
-      />
+      <Logo />
     </div>
   );
 }
@@ -118,7 +118,7 @@ function LocationInfo() {
 
 function SearchBar() {
   return (
-    <div className="mx-6 flex max-w-[600px] flex-1">
+    <div className="mx-6 flex max-w-150 flex-1">
       <input
         type="text"
         placeholder="Buscar productos, marcas y más..."
@@ -136,7 +136,7 @@ function SearchBar() {
 
 function PromoSection() {
   return (
-    <div className="flex items-center gap-1.5">
+    <div className="flex items-center gap-1.5 ml-auto">
       <TagIcon className="size-5" />
       <span className="text-sm font-medium">Ofertas por tiempo limitado</span>
     </div>
