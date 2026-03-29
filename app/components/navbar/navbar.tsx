@@ -118,7 +118,7 @@ function LocationInfo() {
 
 function SearchBar() {
   return (
-    <div className="mx-6 flex max-w-[600px] flex-1">
+    <div className="mx-6 flex max-w-150 flex-1">
       <input
         type="text"
         placeholder="Buscar productos, marcas y más..."
