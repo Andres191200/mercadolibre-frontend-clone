@@ -16,7 +16,7 @@ export function InfoCard({
   imageAlt,
 }: InfoCardProps) {
   return (
-    <div className="flex w-[180px] shrink-0 snap-start flex-col items-center rounded-lg bg-white px-3 py-4 text-center shadow-sm">
+    <div className="flex w-45 shrink-0 snap-start flex-col items-center rounded-lg bg-white px-3 py-4 text-center shadow-sm">
       <h3 className="mb-3 text-sm font-semibold text-ml-text">{title}</h3>
 
       {/* Illustration placeholder */}
@@ -24,8 +24,9 @@ export function InfoCard({
         <Image
           src={imageSrc}
           alt={imageAlt}
-          fill
           className="object-contain"
+          fill
+          
         />
       </div>
 
