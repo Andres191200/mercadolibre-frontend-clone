@@ -26,9 +26,11 @@ export function Slider() {
   const currentRef = useRef(current);
   const isTransitioningRef = useRef(isTransitioning);
 
-  // Keep refs in sync
-  currentRef.current = current;
-  isTransitioningRef.current = isTransitioning;
+  // Keep refs in sync inside an effect to avoid side effects during render
+  useEffect(() => {
+    currentRef.current = current;
+    isTransitioningRef.current = isTransitioning;
+  }, [current, isTransitioning]);
 
   const clearTimer = useCallback(() => {
     if (timerRef.current) {
