@@ -127,7 +127,7 @@ export function Slider() {
         onTransitionEnd={handleTransitionEnd}
       >
         {extendedSlides.map((slide, i) => (
-          <div key={i} className="relative aspect-[1440/340] w-full shrink-0">
+          <div key={i} className="relative aspect-1440/420 w-full shrink-0">
             <Image
               src={slide.src}
               alt={slide.alt}
