@@ -9,9 +9,22 @@ const SLIDE_COUNT = 8;
 const AUTO_PLAY_MS = 3000;
 const TRANSITION_MS = 500;
 
+// Bottom background color of each slide image, used for the gradient-to-white fade
+const SLIDE_BOTTOM_COLORS = [
+  "#1a0f00", // 1 - Motorola (dark brown/black)
+  "#FFE600", // 2 - 4/4 Liquidación (yellow)
+  "#FFE600", // 3 - Ofertas internacionales (yellow)
+  "#1b2a6b", // 4 - Zapatillas (dark blue)
+  "#c4a882", // 5 - Semana del descanso (wooden beige)
+  "#e8ddd0", // 6 - Suplementos (light cream)
+  "#cc0000", // 7 - Liquidación Full (red)
+  "#1a237e", // 8 - Vestite como campeón (dark blue)
+] as const;
+
 const slides = Array.from({ length: SLIDE_COUNT }, (_, i) => ({
   src: `/slider/${i + 1}.png`,
   alt: `Slide ${i + 1}`,
+  bottomColor: SLIDE_BOTTOM_COLORS[i],
 }));
 
 // Extended slides: [last, ...originals, first] for infinite loop illusion
@@ -136,6 +149,13 @@ export function Slider() {
               fill
               className="object-cover"
               priority={i >= 1 && i <= 2}
+            />
+            {/* Bottom gradient: slide color → white */}
+            <div
+              className="pointer-events-none absolute inset-x-0 bottom-0 h-1/3"
+              style={{
+                background: `linear-gradient(to bottom, transparent, ${slide.bottomColor} 40%, #ffffff)`,
+              }}
             />
           </div>
         ))}
