@@ -2,18 +2,19 @@ import Image from "next/image";
 
 export function FavoriteProductCard() {
   return (
-    <div className="flex w-[180px] shrink-0 snap-start flex-col rounded-lg bg-white p-3 shadow-sm">
+    <div className="flex w-45 h-70 shrink-0 snap-start flex-col rounded-lg bg-white px-3 py-4 shadow-sm">
       <h3 className="mb-2 text-sm font-semibold text-ml-text">
         Llevate tu favorito
       </h3>
 
       {/* Product image placeholder */}
-      <div className="relative mb-2 aspect-square w-full overflow-hidden rounded bg-zinc-100">
+      <div className="relative h-30 w-full overflow-hidden rounded bg-transparent flex justify-center">
         <Image
           src="/cards/favorite_article.webp"
           alt="Camisa De Vestir Lisa Celeste Macowens"
-          fill
-          className="object-contain"
+          width={100}
+          height={100}
+          className="object-cover"
         />
       </div>
 
