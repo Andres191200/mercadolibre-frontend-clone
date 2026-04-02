@@ -83,7 +83,7 @@ export function CardsCarousel() {
   }, []);
 
   return (
-    <section className="group/cards relative mx-auto w-full max-w-300 px-2 py-2">
+    <section className="group/cards relative z-10 mx-auto -mt-35 w-full max-w-300 px-2 py-2">
       {/* Left arrow */}
       {canScrollLeft && (
         <button
